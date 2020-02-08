@@ -47,6 +47,7 @@
             this.labelKulAdi = new System.Windows.Forms.Label();
             this.labelPersonalBilgisi = new System.Windows.Forms.Label();
             this.btnCıkıs = new System.Windows.Forms.Button();
+            this.tabPagePersonalListele = new System.Windows.Forms.TabPage();
             this.tabControlYönetici.SuspendLayout();
             this.tabPagePersonalEkle.SuspendLayout();
             this.tabPagePersonalCikar.SuspendLayout();
@@ -56,6 +57,7 @@
             // 
             this.tabControlYönetici.Controls.Add(this.tabPagePersonalEkle);
             this.tabControlYönetici.Controls.Add(this.tabPagePersonalCikar);
+            this.tabControlYönetici.Controls.Add(this.tabPagePersonalListele);
             this.tabControlYönetici.Location = new System.Drawing.Point(12, 12);
             this.tabControlYönetici.Name = "tabControlYönetici";
             this.tabControlYönetici.SelectedIndex = 0;
@@ -240,6 +242,15 @@
             this.btnCıkıs.UseVisualStyleBackColor = true;
             this.btnCıkıs.Click += new System.EventHandler(this.btnCıkıs_Click);
             // 
+            // tabPagePersonalListele
+            // 
+            this.tabPagePersonalListele.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePersonalListele.Name = "tabPagePersonalListele";
+            this.tabPagePersonalListele.Size = new System.Drawing.Size(768, 362);
+            this.tabPagePersonalListele.TabIndex = 2;
+            this.tabPagePersonalListele.Text = "Personal Listele";
+            this.tabPagePersonalListele.UseVisualStyleBackColor = true;
+            // 
             // Yonetici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,5 +291,6 @@
         private System.Windows.Forms.Label labelPersonalBilgisi;
         private System.Windows.Forms.Button btnCikar;
         private System.Windows.Forms.Button btnCıkıs;
+        private System.Windows.Forms.TabPage tabPagePersonalListele;
     }
 }

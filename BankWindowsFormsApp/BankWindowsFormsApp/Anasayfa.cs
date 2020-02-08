@@ -33,5 +33,12 @@ namespace BankWindowsFormsApp
             personal.Show();
             this.Hide();
         }
+
+        private void btnMusteriGirisi_Click(object sender, EventArgs e)
+        {
+            Musteri musteri = new Musteri();
+            musteri.Show();
+            this.Hide();
+        }
     }
 }

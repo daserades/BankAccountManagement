@@ -60,6 +60,18 @@ namespace BankWebApplication
             personaller.Remove(sorgu);
         }
 
+        [WebMethod]
+        public List<BsonDocument> PersonalListele()
+        {
+            //Personal Listeleme
+            var client = new MongoClient("mongodb://localhost/banka");
+            var database = client.GetDatabase("banka");
+            var collection = database.GetCollection<BsonDocument>("personal");
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var result = collection.Find(filter).ToList();
+            return result;
+        }
+
         //Personal Methodları
 
         [WebMethod]
@@ -124,6 +136,5 @@ namespace BankWebApplication
 
             hesaplar.Remove(sorgu);
         }
-
     }
 }

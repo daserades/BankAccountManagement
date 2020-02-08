@@ -70,6 +70,7 @@
             resources.ApplyResources(this.btnMusteriGirisi, "btnMusteriGirisi");
             this.btnMusteriGirisi.Name = "btnMusteriGirisi";
             this.btnMusteriGirisi.UseVisualStyleBackColor = true;
+            this.btnMusteriGirisi.Click += new System.EventHandler(this.btnMusteriGirisi_Click);
             // 
             // Anasayfa
             // 
