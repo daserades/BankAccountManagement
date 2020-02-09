@@ -27,7 +27,6 @@ namespace BankWindowsFormsApp
             {
                 dataGridView1.Rows.Add(i["Ad"].ToString(), i["Soyad"].ToString(), i["Kullanıcı Adı"].ToString(), i["Şifre"].ToString());
             }
-
         }
         
         private void btnEkle_Click(object sender, EventArgs e)
@@ -36,13 +35,16 @@ namespace BankWindowsFormsApp
             {
                 int sifre = Convert.ToInt32(textBoxSifre.Text);
                 ws.PersonalEkle(textBoxAdi.Text, textBoxSoyadi.Text, textBoxKullaniciAdi.Text, sifre);
+                textBoxAdi.Clear();
+                textBoxSoyadi.Clear();
+                textBoxKullaniciAdi.Clear();
+                textBoxSifre.Clear();
                 MessageBox.Show("Personal Başarıyla Eklendi", "Bilgilendirme");
             }
             else
             {
                 MessageBox.Show("Lütfen Boş Alanları Doldurunuz!", "Hata");
             }
-            
         }
 
         private void btnCikar_Click(object sender, EventArgs e)
@@ -50,8 +52,8 @@ namespace BankWindowsFormsApp
             if (textBoxKulAdi.Text != "")
             {
                 ws.PersonalSil(textBoxKulAdi.Text);
-                MessageBox.Show("Personal Başarıyla Çıkarıldı", "Bilgilendirme");
                 textBoxKulAdi.Clear();
+                MessageBox.Show("Personal Başarıyla Silindi", "Bilgilendirme");
             }
             else
             {

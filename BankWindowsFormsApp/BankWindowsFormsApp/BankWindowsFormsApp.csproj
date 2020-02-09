@@ -96,6 +96,12 @@
     <Compile Include="Musteri.Designer.cs">
       <DependentUpon>Musteri.cs</DependentUpon>
     </Compile>
+    <Compile Include="MusteriDetay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusteriDetay.Designer.cs">
+      <DependentUpon>MusteriDetay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Personal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Musteri.resx">
       <DependentUpon>Musteri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusteriDetay.resx">
+      <DependentUpon>MusteriDetay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personal.resx">
       <DependentUpon>Personal.cs</DependentUpon>

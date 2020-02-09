@@ -25,9 +25,15 @@ namespace BankWindowsFormsApp
         {
             if (textBoxAdi.Text != "" & textBoxSoyadi.Text != "" & textBoxMusteriNo.Text != "" & textBoxSifre.Text != "")
             {
+                long tc = Convert.ToInt64(textBoxTc.Text);
                 int musteriNo = Convert.ToInt32(textBoxMusteriNo.Text);
                 int sifre = Convert.ToInt32(textBoxSifre.Text);
-                ws.MusteriEkle(textBoxAdi.Text, textBoxSoyadi.Text, dateTimePicker.Value, musteriNo, sifre);
+                ws.MusteriEkle(textBoxAdi.Text, textBoxSoyadi.Text, tc, dateTimePicker.Value, musteriNo, sifre);
+                textBoxAdi.Clear();
+                textBoxSoyadi.Clear();
+                textBoxTc.Clear();
+                textBoxMusteriNo.Clear();
+                textBoxSifre.Clear();
                 MessageBox.Show("Müşteri Başarıyla Eklendi", "Bilgilendirme");
             }
             else
@@ -45,6 +51,8 @@ namespace BankWindowsFormsApp
                 int musteriNo = Convert.ToInt32(textBoxMusteriNumarasi.Text);
                 int limit = Convert.ToInt32(textBoxLimit.Text);
                 ws.HesapAc(musteriNo, limit);
+                textBoxMusteriNumarasi.Clear();
+                textBoxLimit.Clear();
                 MessageBox.Show("Hesap Başarıyla Açıldı", "Bilgilendirme");
             }
             else
@@ -58,10 +66,11 @@ namespace BankWindowsFormsApp
         [Obsolete]
         private void btnSil_Click(object sender, EventArgs e)
         {
-            if (textBoxMusNo.Text != "")
+            if (textBoxHesapNo.Text != "")
             {
-                int musteriNo = Convert.ToInt32(textBoxMusNo.Text);
-                ws.HesapSil(musteriNo);
+                int hesapNo = Convert.ToInt32(textBoxHesapNo.Text);
+                ws.HesapSil(hesapNo);
+                textBoxHesapNo.Clear();
                 MessageBox.Show("Hesap Başarıyla Kapatıldı", "Bilgilendirme");
             }
             else

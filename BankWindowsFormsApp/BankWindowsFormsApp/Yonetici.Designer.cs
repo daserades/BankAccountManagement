@@ -55,12 +55,12 @@
             this.labelKulAdi = new System.Windows.Forms.Label();
             this.labelPersonalBilgisi = new System.Windows.Forms.Label();
             this.tabPagePersonalListele = new System.Windows.Forms.TabPage();
-            this.btnCıkıs = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCıkıs = new System.Windows.Forms.Button();
             this.tabControlYönetici.SuspendLayout();
             this.tabPagePersonalEkle.SuspendLayout();
             this.tabPagePersonalCikar.SuspendLayout();
@@ -206,7 +206,7 @@
             this.tabPagePersonalCikar.Padding = new System.Windows.Forms.Padding(3);
             this.tabPagePersonalCikar.Size = new System.Drawing.Size(768, 362);
             this.tabPagePersonalCikar.TabIndex = 1;
-            this.tabPagePersonalCikar.Text = "Personal Çıkar";
+            this.tabPagePersonalCikar.Text = "Personal Sil";
             // 
             // btnCikar
             // 
@@ -257,16 +257,6 @@
             this.tabPagePersonalListele.TabIndex = 2;
             this.tabPagePersonalListele.Text = "Personal Listele";
             this.tabPagePersonalListele.UseVisualStyleBackColor = true;
-            // 
-            // btnCıkıs
-            // 
-            this.btnCıkıs.Location = new System.Drawing.Point(12, 406);
-            this.btnCıkıs.Name = "btnCıkıs";
-            this.btnCıkıs.Size = new System.Drawing.Size(75, 35);
-            this.btnCıkıs.TabIndex = 1;
-            this.btnCıkıs.Text = "Çıkış";
-            this.btnCıkıs.UseVisualStyleBackColor = true;
-            this.btnCıkıs.Click += new System.EventHandler(this.btnCıkıs_Click);
             // 
             // dataGridView1
             // 
@@ -345,6 +335,16 @@
             this.Column4.HeaderText = "Şifre";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            // 
+            // btnCıkıs
+            // 
+            this.btnCıkıs.Location = new System.Drawing.Point(12, 406);
+            this.btnCıkıs.Name = "btnCıkıs";
+            this.btnCıkıs.Size = new System.Drawing.Size(75, 35);
+            this.btnCıkıs.TabIndex = 1;
+            this.btnCıkıs.Text = "Çıkış";
+            this.btnCıkıs.UseVisualStyleBackColor = true;
+            this.btnCıkıs.Click += new System.EventHandler(this.btnCıkıs_Click);
             // 
             // Yonetici
             // 

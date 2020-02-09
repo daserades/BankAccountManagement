@@ -3,6 +3,7 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Services;
 
@@ -18,16 +19,11 @@ namespace BankWebApplication
     // [System.Web.Script.Services.ScriptService]
     public class BankWebService : System.Web.Services.WebService
     {
-        
-
-
         //Yönetici Methodları
 
         [WebMethod]
-        //[Obsolete]
         public void PersonalEkle(string adi, string soyadi, string kullaniciAdi, int sifre)
         {
-            //var client = new MongoClient();
             var client = new MongoClient("mongodb://localhost:27017");
 
             var database = client.GetDatabase("banka");
@@ -43,51 +39,25 @@ namespace BankWebApplication
             };
 
             collection.InsertOne(document);
-
-
-            /*
-            MongoClient client = new MongoClient();
-
-            MongoServer server = client.GetServer(); //Yerel bilgisayardaki mongoDB'ye bağlanılıyor.
-
-            MongoDatabase db = server.GetDatabase("banka"); //banka adındaki veritabanına bağlantı sağlanıyor.
-
-            var personaller = db.GetCollection("Personal");  //Personal adındaki koleksiyona (tabloya) bağlanılıyor.
-
-            //Ekleme işlemi yapılıyor
-            personaller.Insert(new BsonDocument
-            {
-                {"Ad", adi},
-                {"Soyad", soyadi},
-                {"Kullanıcı Adı", kullaniciAdi},
-                {"Şifre", sifre}
-            });
-            */
         }
 
         [WebMethod]
-        //[Obsolete]
         public void PersonalSil(string kullaniciAdi)
         {
-            /*
-            MongoClient client = new MongoClient();
+            var client = new MongoClient("mongodb://localhost:27017");
 
-            MongoServer server = client.GetServer(); //Yerel bilgisayardaki mongoDB'ye bağlanılıyor.
+            var database = client.GetDatabase("banka");
 
-            MongoDatabase db = server.GetDatabase("banka"); //banka adındaki veritabanına bağlantı sağlanıyor.
+            var collection = database.GetCollection<BsonDocument>("Personal");
 
-            var personaller = db.GetCollection("Personal"); //Personal adındaki koleksiyona (tabloya) bağlanılıyor.
+            var filter = Builders<BsonDocument>.Filter.Eq("Kullanıcı Adı", kullaniciAdi);
 
-            var sorgu = new QueryDocument { { "Kullanıcı Adı", kullaniciAdi } };
-
-            personaller.Remove(sorgu);
-            */
+            collection.DeleteOne(filter);
         }
 
         [WebMethod]
         public List<BsonDocument> PersonalListele()
         {
-            //var client = new MongoClient();
             var client = new MongoClient("mongodb://localhost:27017");
 
             var database = client.GetDatabase("banka");
@@ -99,88 +69,115 @@ namespace BankWebApplication
             return documents;
         }
 
+        //Personal Methodları
+
         [WebMethod]
-        public long count()
+        public void MusteriEkle(string adi, string soyadi, long tc, DateTime tarih, int musteriNo, int sifre)
         {
-            //var client = new MongoClient();
             var client = new MongoClient("mongodb://localhost:27017");
 
             var database = client.GetDatabase("banka");
 
-            var collection = database.GetCollection<BsonDocument>("Personal");
+            var collection = database.GetCollection<BsonDocument>("Musteri");
 
-            var count = collection.CountDocuments(new BsonDocument());
-
-            return count;
-        }
-
-        //Personal Methodları
-
-        [WebMethod]
-        //[Obsolete]
-        public void MusteriEkle(string adi, string soyadi, DateTime tarih, int musteriNo, int sifre)
-        {
-            /*
-            MongoClient client = new MongoClient();
-
-            MongoServer server = client.GetServer(); //Yerel bilgisayardaki mongoDB'ye bağlanılıyor.
-
-            MongoDatabase db = server.GetDatabase("banka"); //banka adındaki veritabanına bağlantı sağlanıyor.
-
-            var musteriler = db.GetCollection("Musteri");  //Musteri adındaki koleksiyona (tabloya) bağlanılıyor.
-
-            //Ekleme işlemi yapılıyor
-            musteriler.Insert(new BsonDocument
+            BsonDocument document = new BsonDocument
             {
                 {"Ad", adi},
                 {"Soyad", soyadi},
-                {"Tarih", tarih},
+                {"TC No",  tc},
                 {"Müşteri No", musteriNo},
-                {"Şifre", sifre}
-            });
-            */
+                {"Şifre", sifre},
+                {"Tarih", tarih}
+            };
+
+            collection.InsertOne(document);
         }
 
         [WebMethod]
-        //[Obsolete]
         public void HesapAc(int musteriNo, int limit)
         {
-            /*
-            MongoClient client = new MongoClient();
+            var client = new MongoClient("mongodb://localhost:27017");
 
-            MongoServer server = client.GetServer(); //Yerel bilgisayardaki mongoDB'ye bağlanılıyor.
+            var database = client.GetDatabase("banka");
 
-            MongoDatabase db = server.GetDatabase("banka"); //banka adındaki veritabanına bağlantı sağlanıyor.
+            var collection = database.GetCollection<BsonDocument>("Hesap");
 
-            var hesaplar = db.GetCollection("Hesap");  //Hesap adındaki koleksiyona (tabloya) bağlanılıyor.
+            //Random Müşteri No Oluşturma
+            Random random = new Random();
+            int rnd = random.Next(1000000,9999999);
+            string HesapNo = rnd.ToString();
 
-            //Ekleme işlemi yapılıyor
-            hesaplar.Insert(new BsonDocument
+
+            BsonDocument document = new BsonDocument
             {
                 {"Müşteri No", musteriNo},
+                {"Hesap No", HesapNo},
                 {"Limit",  limit},
                 {"Tarih", DateTime.Now}
-            });
-            */
+            };
+
+            collection.InsertOne(document);
         }
 
         [WebMethod]
-        //[Obsolete]
         public void HesapSil(int musteriNo)
         {
-            /*
-            MongoClient client = new MongoClient();
+            var client = new MongoClient("mongodb://localhost:27017");
 
-            MongoServer server = client.GetServer(); //Yerel bilgisayardaki mongoDB'ye bağlanılıyor.
+            var database = client.GetDatabase("banka");
 
-            MongoDatabase db = server.GetDatabase("banka"); //banka adındaki veritabanına bağlantı sağlanıyor.
+            var collection = database.GetCollection<BsonDocument>("Hesap");
 
-            var hesaplar = db.GetCollection("Hesap"); //Personal adındaki koleksiyona (tabloya) bağlanılıyor.
+            var filter = Builders<BsonDocument>.Filter.Eq("Müşteri No", musteriNo);
 
-            var sorgu = new QueryDocument { { "Müşteri No", musteriNo } };
+            collection.DeleteOne(filter);
+        }
 
-            hesaplar.Remove(sorgu);
-            */
+        [WebMethod]
+        public List<BsonDocument> MusteriListele()
+        {
+            var client = new MongoClient("mongodb://localhost:27017");
+
+            var database = client.GetDatabase("banka");
+
+            var collection = database.GetCollection<BsonDocument>("Musteri");
+
+            var documents = collection.Find(new BsonDocument()).ToList();
+
+            return documents;
+        }
+
+        //Müşteri Methodları
+
+        [WebMethod]
+        public List<BsonDocument> HesapListele(string hesapNo)
+        {
+            var client = new MongoClient("mongodb://localhost:27017");
+
+            var database = client.GetDatabase("banka");
+
+            var collection = database.GetCollection<BsonDocument>("Hesap");
+
+            var filter = Builders<BsonDocument>.Filter.Eq("Hesap No", hesapNo);
+
+            var result = collection.Find(filter).ToList();
+
+            return result;
+        }
+
+        [WebMethod]
+        public void Guncelle(string hesapNo, int lim)
+        {
+            var client = new MongoClient("mongodb://localhost:27017");
+
+            var database = client.GetDatabase("banka");
+
+            var collection = database.GetCollection<BsonDocument>("Hesap");
+
+            var filter = Builders<BsonDocument>.Filter.Eq("Hesap No", hesapNo);
+            var update = Builders<BsonDocument>.Update.Set("Limit", lim);
+
+            collection.FindOneAndUpdate(filter,update);
         }
     }
 }
