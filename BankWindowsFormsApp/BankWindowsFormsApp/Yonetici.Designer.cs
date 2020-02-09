@@ -28,6 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Yonetici));
             this.tabControlYönetici = new System.Windows.Forms.TabControl();
             this.tabPagePersonalEkle = new System.Windows.Forms.TabPage();
@@ -46,11 +54,18 @@
             this.textBoxKulAdi = new System.Windows.Forms.TextBox();
             this.labelKulAdi = new System.Windows.Forms.Label();
             this.labelPersonalBilgisi = new System.Windows.Forms.Label();
-            this.btnCıkıs = new System.Windows.Forms.Button();
             this.tabPagePersonalListele = new System.Windows.Forms.TabPage();
+            this.btnCıkıs = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlYönetici.SuspendLayout();
             this.tabPagePersonalEkle.SuspendLayout();
             this.tabPagePersonalCikar.SuspendLayout();
+            this.tabPagePersonalListele.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlYönetici
@@ -207,7 +222,7 @@
             // 
             // textBoxKulAdi
             // 
-            this.textBoxKulAdi.Location = new System.Drawing.Point(354, 153);
+            this.textBoxKulAdi.Location = new System.Drawing.Point(354, 155);
             this.textBoxKulAdi.Name = "textBoxKulAdi";
             this.textBoxKulAdi.Size = new System.Drawing.Size(140, 20);
             this.textBoxKulAdi.TabIndex = 3;
@@ -215,9 +230,10 @@
             // labelKulAdi
             // 
             this.labelKulAdi.AutoSize = true;
+            this.labelKulAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelKulAdi.Location = new System.Drawing.Point(260, 156);
             this.labelKulAdi.Name = "labelKulAdi";
-            this.labelKulAdi.Size = new System.Drawing.Size(67, 13);
+            this.labelKulAdi.Size = new System.Drawing.Size(83, 16);
             this.labelKulAdi.TabIndex = 2;
             this.labelKulAdi.Text = "Kullanıcı Adı:";
             // 
@@ -232,6 +248,16 @@
             this.labelPersonalBilgisi.TabIndex = 1;
             this.labelPersonalBilgisi.Text = "Personal Bilgisi";
             // 
+            // tabPagePersonalListele
+            // 
+            this.tabPagePersonalListele.Controls.Add(this.dataGridView1);
+            this.tabPagePersonalListele.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePersonalListele.Name = "tabPagePersonalListele";
+            this.tabPagePersonalListele.Size = new System.Drawing.Size(768, 362);
+            this.tabPagePersonalListele.TabIndex = 2;
+            this.tabPagePersonalListele.Text = "Personal Listele";
+            this.tabPagePersonalListele.UseVisualStyleBackColor = true;
+            // 
             // btnCıkıs
             // 
             this.btnCıkıs.Location = new System.Drawing.Point(12, 406);
@@ -242,14 +268,83 @@
             this.btnCıkıs.UseVisualStyleBackColor = true;
             this.btnCıkıs.Click += new System.EventHandler(this.btnCıkıs_Click);
             // 
-            // tabPagePersonalListele
+            // dataGridView1
             // 
-            this.tabPagePersonalListele.Location = new System.Drawing.Point(4, 22);
-            this.tabPagePersonalListele.Name = "tabPagePersonalListele";
-            this.tabPagePersonalListele.Size = new System.Drawing.Size(768, 362);
-            this.tabPagePersonalListele.TabIndex = 2;
-            this.tabPagePersonalListele.Text = "Personal Listele";
-            this.tabPagePersonalListele.UseVisualStyleBackColor = true;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column2,
+            this.Column3,
+            this.Column1,
+            this.Column4});
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(768, 362);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column2.HeaderText = "Ad";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.HeaderText = "Soyad";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column1.HeaderText = "Kullanıcı Adı";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column4.HeaderText = "Şifre";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Yonetici
             // 
@@ -267,6 +362,8 @@
             this.tabPagePersonalEkle.PerformLayout();
             this.tabPagePersonalCikar.ResumeLayout(false);
             this.tabPagePersonalCikar.PerformLayout();
+            this.tabPagePersonalListele.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -292,5 +389,10 @@
         private System.Windows.Forms.Button btnCikar;
         private System.Windows.Forms.Button btnCıkıs;
         private System.Windows.Forms.TabPage tabPagePersonalListele;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

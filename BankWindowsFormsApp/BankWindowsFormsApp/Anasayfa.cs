@@ -18,8 +18,6 @@ namespace BankWindowsFormsApp
             InitializeComponent();
         }
 
-        BankWebService ws = new BankWebService();
-
         private void btnYonetici_Click(object sender, EventArgs e)
         {
             Yonetici yonetici = new Yonetici();

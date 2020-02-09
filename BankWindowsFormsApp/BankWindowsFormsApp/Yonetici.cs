@@ -15,14 +15,21 @@ namespace BankWindowsFormsApp
 {
     public partial class Yonetici : Form
     {
+        BankWebService ws = new BankWebService();
         public Yonetici()
         {
             InitializeComponent();
+
+            var dc = ws.PersonalListele();
+            Array array = dc.ToArray();
+
+            foreach (BsonDocument i in array)
+            {
+                dataGridView1.Rows.Add(i["Ad"].ToString(), i["Soyad"].ToString(), i["Kullanıcı Adı"].ToString(), i["Şifre"].ToString());
+            }
+
         }
-
-        BankWebService ws = new BankWebService();
-
-        [Obsolete]
+        
         private void btnEkle_Click(object sender, EventArgs e)
         {
             if(textBoxAdi.Text != "" & textBoxSoyadi.Text != "" & textBoxKullaniciAdi.Text != "" &  textBoxSifre.Text != "")
@@ -38,7 +45,6 @@ namespace BankWindowsFormsApp
             
         }
 
-        [Obsolete]
         private void btnCikar_Click(object sender, EventArgs e)
         {
             if (textBoxKulAdi.Text != "")

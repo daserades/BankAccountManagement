@@ -18,12 +18,34 @@ namespace BankWebApplication
     // [System.Web.Script.Services.ScriptService]
     public class BankWebService : System.Web.Services.WebService
     {
+        
+
+
         //Yönetici Methodları
 
         [WebMethod]
-        [Obsolete]
+        //[Obsolete]
         public void PersonalEkle(string adi, string soyadi, string kullaniciAdi, int sifre)
         {
+            //var client = new MongoClient();
+            var client = new MongoClient("mongodb://localhost:27017");
+
+            var database = client.GetDatabase("banka");
+
+            var collection = database.GetCollection<BsonDocument>("Personal");
+
+            BsonDocument document = new BsonDocument
+            {
+                {"Ad", adi},
+                {"Soyad", soyadi},
+                {"Kullanıcı Adı", kullaniciAdi},
+                {"Şifre", sifre}
+            };
+
+            collection.InsertOne(document);
+
+
+            /*
             MongoClient client = new MongoClient();
 
             MongoServer server = client.GetServer(); //Yerel bilgisayardaki mongoDB'ye bağlanılıyor.
@@ -40,13 +62,14 @@ namespace BankWebApplication
                 {"Kullanıcı Adı", kullaniciAdi},
                 {"Şifre", sifre}
             });
-
+            */
         }
 
         [WebMethod]
-        [Obsolete]
+        //[Obsolete]
         public void PersonalSil(string kullaniciAdi)
         {
+            /*
             MongoClient client = new MongoClient();
 
             MongoServer server = client.GetServer(); //Yerel bilgisayardaki mongoDB'ye bağlanılıyor.
@@ -58,26 +81,46 @@ namespace BankWebApplication
             var sorgu = new QueryDocument { { "Kullanıcı Adı", kullaniciAdi } };
 
             personaller.Remove(sorgu);
+            */
         }
 
         [WebMethod]
         public List<BsonDocument> PersonalListele()
         {
-            //Personal Listeleme
-            var client = new MongoClient("mongodb://localhost/banka");
+            //var client = new MongoClient();
+            var client = new MongoClient("mongodb://localhost:27017");
+
             var database = client.GetDatabase("banka");
-            var collection = database.GetCollection<BsonDocument>("personal");
-            var filter = Builders<BsonDocument>.Filter.Empty;
-            var result = collection.Find(filter).ToList();
-            return result;
+
+            var collection = database.GetCollection<BsonDocument>("Personal");
+
+            var documents = collection.Find(new BsonDocument()).ToList();
+
+            return documents;
+        }
+
+        [WebMethod]
+        public long count()
+        {
+            //var client = new MongoClient();
+            var client = new MongoClient("mongodb://localhost:27017");
+
+            var database = client.GetDatabase("banka");
+
+            var collection = database.GetCollection<BsonDocument>("Personal");
+
+            var count = collection.CountDocuments(new BsonDocument());
+
+            return count;
         }
 
         //Personal Methodları
 
         [WebMethod]
-        [Obsolete]
+        //[Obsolete]
         public void MusteriEkle(string adi, string soyadi, DateTime tarih, int musteriNo, int sifre)
         {
+            /*
             MongoClient client = new MongoClient();
 
             MongoServer server = client.GetServer(); //Yerel bilgisayardaki mongoDB'ye bağlanılıyor.
@@ -95,13 +138,14 @@ namespace BankWebApplication
                 {"Müşteri No", musteriNo},
                 {"Şifre", sifre}
             });
-
+            */
         }
 
         [WebMethod]
-        [Obsolete]
+        //[Obsolete]
         public void HesapAc(int musteriNo, int limit)
         {
+            /*
             MongoClient client = new MongoClient();
 
             MongoServer server = client.GetServer(); //Yerel bilgisayardaki mongoDB'ye bağlanılıyor.
@@ -117,13 +161,14 @@ namespace BankWebApplication
                 {"Limit",  limit},
                 {"Tarih", DateTime.Now}
             });
-
+            */
         }
 
         [WebMethod]
-        [Obsolete]
+        //[Obsolete]
         public void HesapSil(int musteriNo)
         {
+            /*
             MongoClient client = new MongoClient();
 
             MongoServer server = client.GetServer(); //Yerel bilgisayardaki mongoDB'ye bağlanılıyor.
@@ -135,6 +180,7 @@ namespace BankWebApplication
             var sorgu = new QueryDocument { { "Müşteri No", musteriNo } };
 
             hesaplar.Remove(sorgu);
+            */
         }
     }
 }
