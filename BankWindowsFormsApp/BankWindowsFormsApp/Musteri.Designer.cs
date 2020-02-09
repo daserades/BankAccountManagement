@@ -103,7 +103,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Musteri";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Banka Hesap Yönetimi (Müşteri)";
+            this.Text = "Banka Hesap Yönetimi (Müşteri Girişi)";
             this.ResumeLayout(false);
             this.PerformLayout();
 

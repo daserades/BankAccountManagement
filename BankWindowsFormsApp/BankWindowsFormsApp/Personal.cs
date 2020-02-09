@@ -68,7 +68,7 @@ namespace BankWindowsFormsApp
         {
             if (textBoxHesapNo.Text != "")
             {
-                int hesapNo = Convert.ToInt32(textBoxHesapNo.Text);
+                string hesapNo = textBoxHesapNo.Text;
                 ws.HesapSil(hesapNo);
                 textBoxHesapNo.Clear();
                 MessageBox.Show("Hesap Başarıyla Kapatıldı", "Bilgilendirme");

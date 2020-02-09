@@ -120,7 +120,7 @@ namespace BankWebApplication
         }
 
         [WebMethod]
-        public void HesapSil(int musteriNo)
+        public void HesapSil(string hesapNo)
         {
             var client = new MongoClient("mongodb://localhost:27017");
 
@@ -128,7 +128,7 @@ namespace BankWebApplication
 
             var collection = database.GetCollection<BsonDocument>("Hesap");
 
-            var filter = Builders<BsonDocument>.Filter.Eq("Müşteri No", musteriNo);
+            var filter = Builders<BsonDocument>.Filter.Eq("Hesap No", hesapNo);
 
             collection.DeleteOne(filter);
         }
