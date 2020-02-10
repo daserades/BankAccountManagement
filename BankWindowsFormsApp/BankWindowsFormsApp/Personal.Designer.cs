@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Personal));
             this.tabControlPersonal = new System.Windows.Forms.TabControl();
             this.tabPageMusteriEkle = new System.Windows.Forms.TabPage();
@@ -36,11 +41,9 @@
             this.btnEkle = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.textBoxSifre = new System.Windows.Forms.TextBox();
-            this.textBoxMusteriNo = new System.Windows.Forms.TextBox();
             this.textBoxSoyadi = new System.Windows.Forms.TextBox();
             this.textBoxAdi = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.labelMusteriNo = new System.Windows.Forms.Label();
             this.labelTarih = new System.Windows.Forms.Label();
             this.labelSoyadi = new System.Windows.Forms.Label();
             this.labelAdi = new System.Windows.Forms.Label();
@@ -53,15 +56,25 @@
             this.labelMusteriNumarası = new System.Windows.Forms.Label();
             this.labelMusteriBilgisi = new System.Windows.Forms.Label();
             this.tabPageHesapSil = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSil = new System.Windows.Forms.Button();
             this.textBoxHesapNo = new System.Windows.Forms.TextBox();
             this.labelMusNo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tabPageMusteriListele = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCıkıs = new System.Windows.Forms.Button();
             this.tabControlPersonal.SuspendLayout();
             this.tabPageMusteriEkle.SuspendLayout();
             this.tabPageHesapAc.SuspendLayout();
             this.tabPageHesapSil.SuspendLayout();
+            this.tabPageMusteriListele.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlPersonal
@@ -69,6 +82,7 @@
             this.tabControlPersonal.Controls.Add(this.tabPageMusteriEkle);
             this.tabControlPersonal.Controls.Add(this.tabPageHesapAc);
             this.tabControlPersonal.Controls.Add(this.tabPageHesapSil);
+            this.tabControlPersonal.Controls.Add(this.tabPageMusteriListele);
             this.tabControlPersonal.Location = new System.Drawing.Point(12, 12);
             this.tabControlPersonal.Name = "tabControlPersonal";
             this.tabControlPersonal.SelectedIndex = 0;
@@ -83,11 +97,9 @@
             this.tabPageMusteriEkle.Controls.Add(this.btnEkle);
             this.tabPageMusteriEkle.Controls.Add(this.dateTimePicker);
             this.tabPageMusteriEkle.Controls.Add(this.textBoxSifre);
-            this.tabPageMusteriEkle.Controls.Add(this.textBoxMusteriNo);
             this.tabPageMusteriEkle.Controls.Add(this.textBoxSoyadi);
             this.tabPageMusteriEkle.Controls.Add(this.textBoxAdi);
             this.tabPageMusteriEkle.Controls.Add(this.label6);
-            this.tabPageMusteriEkle.Controls.Add(this.labelMusteriNo);
             this.tabPageMusteriEkle.Controls.Add(this.labelTarih);
             this.tabPageMusteriEkle.Controls.Add(this.labelSoyadi);
             this.tabPageMusteriEkle.Controls.Add(this.labelAdi);
@@ -117,7 +129,7 @@
             // 
             // btnEkle
             // 
-            this.btnEkle.Location = new System.Drawing.Point(462, 284);
+            this.btnEkle.Location = new System.Drawing.Point(462, 258);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(75, 35);
             this.btnEkle.TabIndex = 11;
@@ -127,24 +139,17 @@
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(337, 235);
+            this.dateTimePicker.Location = new System.Drawing.Point(337, 209);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker.TabIndex = 10;
             // 
             // textBoxSifre
             // 
-            this.textBoxSifre.Location = new System.Drawing.Point(337, 209);
+            this.textBoxSifre.Location = new System.Drawing.Point(337, 183);
             this.textBoxSifre.Name = "textBoxSifre";
             this.textBoxSifre.Size = new System.Drawing.Size(200, 20);
             this.textBoxSifre.TabIndex = 9;
-            // 
-            // textBoxMusteriNo
-            // 
-            this.textBoxMusteriNo.Location = new System.Drawing.Point(337, 183);
-            this.textBoxMusteriNo.Name = "textBoxMusteriNo";
-            this.textBoxMusteriNo.Size = new System.Drawing.Size(200, 20);
-            this.textBoxMusteriNo.TabIndex = 8;
             // 
             // textBoxSoyadi
             // 
@@ -163,25 +168,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(220, 212);
+            this.label6.Location = new System.Drawing.Point(220, 186);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Şifre";
             // 
-            // labelMusteriNo
-            // 
-            this.labelMusteriNo.AutoSize = true;
-            this.labelMusteriNo.Location = new System.Drawing.Point(220, 186);
-            this.labelMusteriNo.Name = "labelMusteriNo";
-            this.labelMusteriNo.Size = new System.Drawing.Size(91, 13);
-            this.labelMusteriNo.TabIndex = 4;
-            this.labelMusteriNo.Text = "Müşteri Numarası:";
-            // 
             // labelTarih
             // 
             this.labelTarih.AutoSize = true;
-            this.labelTarih.Location = new System.Drawing.Point(220, 241);
+            this.labelTarih.Location = new System.Drawing.Point(220, 215);
             this.labelTarih.Name = "labelTarih";
             this.labelTarih.Size = new System.Drawing.Size(31, 13);
             this.labelTarih.TabIndex = 3;
@@ -260,9 +256,9 @@
             this.labelLimit.AutoSize = true;
             this.labelLimit.Location = new System.Drawing.Point(235, 175);
             this.labelLimit.Name = "labelLimit";
-            this.labelLimit.Size = new System.Drawing.Size(67, 13);
+            this.labelLimit.Size = new System.Drawing.Size(83, 13);
             this.labelLimit.TabIndex = 2;
-            this.labelLimit.Text = "Hesap Limiti:";
+            this.labelLimit.Text = "Hesap Bakiyesi:";
             // 
             // labelMusteriNumarası
             // 
@@ -286,6 +282,7 @@
             // tabPageHesapSil
             // 
             this.tabPageHesapSil.BackColor = System.Drawing.Color.White;
+            this.tabPageHesapSil.Controls.Add(this.label1);
             this.tabPageHesapSil.Controls.Add(this.btnSil);
             this.tabPageHesapSil.Controls.Add(this.textBoxHesapNo);
             this.tabPageHesapSil.Controls.Add(this.labelMusNo);
@@ -297,19 +294,29 @@
             this.tabPageHesapSil.TabIndex = 2;
             this.tabPageHesapSil.Text = "Hesap Kapat";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(221, 213);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 12);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Hesabın kapatılabilmesi için bakiye 0 olmalıdır.";
+            // 
             // btnSil
             // 
-            this.btnSil.Location = new System.Drawing.Point(456, 209);
+            this.btnSil.Location = new System.Drawing.Point(455, 201);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(75, 35);
             this.btnSil.TabIndex = 11;
-            this.btnSil.Text = "Sil";
+            this.btnSil.Text = "Kapat";
             this.btnSil.UseVisualStyleBackColor = true;
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // textBoxHesapNo
             // 
-            this.textBoxHesapNo.Location = new System.Drawing.Point(331, 162);
+            this.textBoxHesapNo.Location = new System.Drawing.Point(330, 154);
             this.textBoxHesapNo.Name = "textBoxHesapNo";
             this.textBoxHesapNo.Size = new System.Drawing.Size(200, 20);
             this.textBoxHesapNo.TabIndex = 9;
@@ -317,7 +324,7 @@
             // labelMusNo
             // 
             this.labelMusNo.AutoSize = true;
-            this.labelMusNo.Location = new System.Drawing.Point(221, 165);
+            this.labelMusNo.Location = new System.Drawing.Point(220, 157);
             this.labelMusNo.Name = "labelMusNo";
             this.labelMusNo.Size = new System.Drawing.Size(88, 13);
             this.labelMusNo.TabIndex = 7;
@@ -327,11 +334,85 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(305, 101);
+            this.label3.Location = new System.Drawing.Point(307, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "Hesap Bilgisi";
+            // 
+            // tabPageMusteriListele
+            // 
+            this.tabPageMusteriListele.BackColor = System.Drawing.Color.Transparent;
+            this.tabPageMusteriListele.Controls.Add(this.dataGridView1);
+            this.tabPageMusteriListele.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMusteriListele.Name = "tabPageMusteriListele";
+            this.tabPageMusteriListele.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMusteriListele.Size = new System.Drawing.Size(768, 360);
+            this.tabPageMusteriListele.TabIndex = 3;
+            this.tabPageMusteriListele.Text = "Müşteri Listele";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(762, 354);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column1.HeaderText = "Ad";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column2.HeaderText = "Soyad";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.HeaderText = "T.C. Kimlik No";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column4.HeaderText = "Müşteri No";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column5.HeaderText = "Şifre";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // btnCıkıs
             // 
@@ -361,6 +442,8 @@
             this.tabPageHesapAc.PerformLayout();
             this.tabPageHesapSil.ResumeLayout(false);
             this.tabPageHesapSil.PerformLayout();
+            this.tabPageMusteriListele.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -373,13 +456,11 @@
         private System.Windows.Forms.TabPage tabPageHesapSil;
         private System.Windows.Forms.Label labelMusteriBilgileri;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelMusteriNo;
         private System.Windows.Forms.Label labelTarih;
         private System.Windows.Forms.Label labelSoyadi;
         private System.Windows.Forms.Label labelAdi;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.TextBox textBoxSifre;
-        private System.Windows.Forms.TextBox textBoxMusteriNo;
         private System.Windows.Forms.TextBox textBoxSoyadi;
         private System.Windows.Forms.TextBox textBoxAdi;
         private System.Windows.Forms.Button btnEkle;
@@ -396,5 +477,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxTc;
         private System.Windows.Forms.Label labelTc;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabPageMusteriListele;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

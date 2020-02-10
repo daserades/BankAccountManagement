@@ -35,6 +35,7 @@
             this.textBoxSifre = new System.Windows.Forms.TextBox();
             this.btnGiris = new System.Windows.Forms.Button();
             this.labelGirisBilgileri = new System.Windows.Forms.Label();
+            this.btnGeri = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelTc
@@ -89,11 +90,22 @@
             this.labelGirisBilgileri.TabIndex = 5;
             this.labelGirisBilgileri.Text = "Giriş Bilgileri";
             // 
+            // btnGeri
+            // 
+            this.btnGeri.Location = new System.Drawing.Point(12, 12);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(68, 35);
+            this.btnGeri.TabIndex = 6;
+            this.btnGeri.Text = "Geri";
+            this.btnGeri.UseVisualStyleBackColor = true;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
+            // 
             // Musteri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.labelGirisBilgileri);
             this.Controls.Add(this.btnGiris);
             this.Controls.Add(this.textBoxSifre);
@@ -117,5 +129,6 @@
         private System.Windows.Forms.TextBox textBoxSifre;
         private System.Windows.Forms.Button btnGiris;
         private System.Windows.Forms.Label labelGirisBilgileri;
+        private System.Windows.Forms.Button btnGeri;
     }
 }

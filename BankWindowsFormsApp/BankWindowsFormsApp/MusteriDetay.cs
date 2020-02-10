@@ -14,12 +14,12 @@ namespace BankWindowsFormsApp
 {
     public partial class MusteriDetay : Form
     {
+        BankWebService ws = new BankWebService();
+
         public MusteriDetay()
         {
             InitializeComponent();
         }
-
-        BankWebService ws = new BankWebService();
 
         private void btnCek_Click(object sender, EventArgs e)
         {
@@ -51,6 +51,13 @@ namespace BankWindowsFormsApp
                 textBoxHesN.Clear();
                 textBoxMik.Clear();
             }
+        }
+
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            Musteri musteri = new Musteri();
+            musteri.Show();
+            this.Hide();
         }
     }
 }

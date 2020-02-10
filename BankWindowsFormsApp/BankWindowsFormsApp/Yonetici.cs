@@ -16,13 +16,13 @@ namespace BankWindowsFormsApp
     public partial class Yonetici : Form
     {
         BankWebService ws = new BankWebService();
+
         public Yonetici()
         {
             InitializeComponent();
 
             var dc = ws.PersonalListele();
             Array array = dc.ToArray();
-
             foreach (BsonDocument i in array)
             {
                 dataGridView1.Rows.Add(i["Ad"].ToString(), i["Soyad"].ToString(), i["Kullanıcı Adı"].ToString(), i["Şifre"].ToString());
@@ -31,7 +31,7 @@ namespace BankWindowsFormsApp
         
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if(textBoxAdi.Text != "" & textBoxSoyadi.Text != "" & textBoxKullaniciAdi.Text != "" &  textBoxSifre.Text != "")
+            if (textBoxAdi.Text != "" & textBoxSoyadi.Text != "" & textBoxKullaniciAdi.Text != "" & textBoxSifre.Text != "")
             {
                 int sifre = Convert.ToInt32(textBoxSifre.Text);
                 ws.PersonalEkle(textBoxAdi.Text, textBoxSoyadi.Text, textBoxKullaniciAdi.Text, sifre);
